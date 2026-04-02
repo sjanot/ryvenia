@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ukážka Business Analýzy — Modul Predaj | IT-DK.sk</title>
+<style>
+  :root {
+    --accent: #2980b9;
+    --header-bg: #2c3e50;
+    --light-bg: #f8f9fa;
+    --border: #dee2e6;
+    --green: #27ae60;
+    --orange: #f39c12;
+    --red: #e74c3c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 13px; color: #333; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 22px; text-align: center; margin-bottom: 4px; }
+  .subtitle { text-align: center; color: #666; margin-bottom: 16px; font-size: 13px; }
+  hr { border: none; border-top: 2px solid var(--accent); margin: 12px 0; }
+  h2 { font-size: 17px; color: var(--header-bg); margin: 24px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+  h3 { font-size: 14px; color: var(--accent); margin: 16px 0 8px; }
+  h4 { font-size: 13px; margin: 12px 0 6px; color: #555; }
+  p { margin-bottom: 8px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 12px; }
+  th { background: var(--header-bg); color: white; padding: 6px 8px; text-align: left; font-size: 11px; }
+  th.r { text-align: right; }
+  th.c { text-align: center; }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  td.c { text-align: center; }
+  tr:nth-child(even) td { background: var(--light-bg); }
+  ul, ol { margin: 6px 0 10px 20px; font-size: 13px; }
+  li { margin-bottom: 3px; }
+  .badge { display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; color: white; }
+  .badge-high { background: var(--red); }
+  .badge-med { background: var(--orange); }
+  .badge-low { background: var(--green); }
+  .callout { background: #eaf2f8; border-left: 4px solid var(--accent); padding: 10px 14px; margin: 12px 0; font-size: 12px; border-radius: 0 4px 4px 0; }
+  .callout-warn { background: #fef9e7; border-left-color: var(--orange); }
+  .callout-ok { background: #e8f8f0; border-left-color: var(--green); }
+  .process-flow { display: flex; align-items: center; gap: 0; margin: 12px 0; flex-wrap: wrap; }
+  .process-step { background: var(--header-bg); color: white; padding: 6px 14px; border-radius: 4px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .process-arrow { color: var(--accent); font-size: 18px; padding: 0 4px; font-weight: bold; }
+  .process-step.highlight { background: var(--accent); }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0; }
+  .kpi-box { background: var(--light-bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px; text-align: center; }
+  .kpi-box .value { font-size: 20px; font-weight: bold; color: var(--accent); }
+  .kpi-box .label { font-size: 10px; color: #888; margin-top: 2px; }
+  .comparison td { font-size: 12px; }
+  .comparison .as-is { color: var(--red); }
+  .comparison .to-be { color: var(--green); }
+  .watermark { text-align: center; color: #ccc; font-size: 11px; margin: 20px 0; font-style: italic; }
+  .toc { background: var(--light-bg); border: 1px solid var(--border); border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .toc h3 { margin-top: 0; color: var(--header-bg); }
+  .toc ol { margin-bottom: 0; }
+  .toc li { font-size: 12px; padding: 2px 0; }
+  .toc .current { font-weight: bold; color: var(--accent); }
+  .footer { margin-top: 24px; font-size: 11px; color: #999; text-align: center; border-top: 1px solid var(--border); padding-top: 12px; }
+  @media print { body { padding: 0; font-size: 11px; } }
+  @media (max-width: 600px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } .process-flow { gap: 2px; } }
+</style>
+</head>
+<body>
+
+<h1>BUSINESS ANAL&Yacute;ZA &mdash; Odoo ERP</h1>
+<p class="subtitle">Uk&aacute;&#382;ka v&yacute;stupn&eacute;ho dokumentu &mdash; Modul Predaj</p>
+<hr>
+
+<div class="watermark">&#9888; TOTO JE UK&Aacute;&#381;KA &mdash; ilustrat&iacute;vny pr&iacute;klad pre fikt&iacute;vnu firmu &bdquo;DEMO s.r.o.&ldquo;</div>
+
+<div class="toc">
+  <h3>Obsah dokumentu</h3>
+  <ol>
+    <li>Executive Summary</li>
+    <li class="current">Predaj (t&aacute;to uk&aacute;&#382;ka)</li>
+    <li>N&aacute;kup</li>
+    <li>Sklad (WMS)</li>
+    <li>E-shop integr&aacute;cia</li>
+    <li>Expedi&aacute;cia a logistika</li>
+    <li>Faktur&aacute;cia a financie</li>
+    <li>Majetok</li>
+    <li>Reporting a dashboardy</li>
+    <li>Migr&aacute;cia d&aacute;t</li>
+    <li>Gap anal&yacute;za &mdash; s&uacute;hrn</li>
+    <li>Implementa&#269;n&yacute; harmonogram</li>
+    <li>Rizik&aacute; a odpor&uacute;&#269;ania</li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2>2. Predaj</h2>
+<!-- ============================================================ -->
+
+<h3>2.1 AS-IS &mdash; Aktu&aacute;lny stav</h3>
+
+<h4>S&uacute;&#269;asn&yacute; obchodn&yacute; tok</h4>
+<div class="process-flow">
+  <span class="process-step">Dopyt (email/tel)</span>
+  <span class="process-arrow">&rarr;</span>
+  <span class="process-step">Ponuka (Excel)</span>
+  <span class="process-arrow">&rarr;</span>
+  <span class="process-step">Objedn&aacute;vka (ERP)</span>
+  <span class="process-arrow">&rarr;</span>
+  <span class="process-step">Dodac&iacute; list (ru&#269;ne)</span>
+  <span class="process-arrow">&rarr;</span>
+  <span class="process-step">Fakt&uacute;ra (ERP)</span>
+</div>
+
+<p>Obchodn&yacute; t&iacute;m pou&#382;&iacute;va kombin&aacute;ciu star&eacute;ho ERP syst&eacute;mu, Excelu a emailov. Hlavn&eacute; zistenia:</p>
+
+<ul>
+  <li><b>Cenov&eacute; zoznamy</b> &mdash; spravovan&eacute; v 3 Excel s&uacute;boroch (B2B CZ, B2B SK, akciov&eacute; ceny). Neexistuje jedin&yacute; zdroj pravdy. Obchodn&iacute;ci &#269;asto pracuj&uacute; so zastaralou verziou.</li>
+  <li><b>Ponuky</b> &mdash; vytv&aacute;ran&eacute; ru&#269;ne v Exceli, bez prepojenia na sklad. Obchodn&iacute;k nevid&iacute; dostupnos&#357; tovaru v &#269;ase vytv&aacute;rania ponuky.</li>
+  <li><b>Rabaty</b> &mdash; schva&#318;ovanie rabatov cez email bez form&aacute;lneho workflow. Nie je audit trail.</li>
+  <li><b>Dodacie listy</b> &mdash; vytv&aacute;ran&eacute; manu&aacute;lne, &#269;asto duplikovan&eacute; &uacute;daje z objedn&aacute;vky.</li>
+  <li><b>Dobropisy</b> &mdash; spracov&aacute;van&eacute; mimo syst&eacute;m, n&aacute;ro&#269;n&eacute; na dosledovanie.</li>
+  <li><b>Reklam&aacute;cie</b> &mdash; evidovan&eacute; v zdie&#318;anom Google Sheete, bez prepojenia na objedn&aacute;vky.</li>
+</ul>
+
+<div class="kpi-grid">
+  <div class="kpi-box">
+    <div class="value">~45 min</div>
+    <div class="label">Priemern&yacute; &#269;as na vytvorenie ponuky</div>
+  </div>
+  <div class="kpi-box">
+    <div class="value">3</div>
+    <div class="label">Excely s cenn&iacute;kmi</div>
+  </div>
+  <div class="kpi-box">
+    <div class="value">~12%</div>
+    <div class="label">Pon&uacute;k s chybnou cenou</div>
+  </div>
+  <div class="kpi-box">
+    <div class="value">0</div>
+    <div class="label">Automatiz&aacute;cia workflow</div>
+  </div>
+</div>
+
+<div class="callout-warn callout">
+  <b>&#9888; Pain point:</b> Obchodn&iacute;ci tr&aacute;via ~40% &#269;asu administrat&iacute;vou (kop&iacute;rovanie d&aacute;t medzi syst&eacute;mami)
+  namiesto akt&iacute;vneho predaja. Chybovos&#357; cenn&iacute;kov sp&ocirc;sobuje reklamačn&eacute; n&aacute;klady ~3 200 EUR/rok.
+</div>
+
+<!-- ============================================================ -->
+<h3>2.2 TO-BE &mdash; Cie&#318;ov&yacute; stav v Odoo</h3>
+
+<h4>Cie&#318;ov&yacute; obchodn&yacute; tok</h4>
+<div class="process-flow">
+  <span class="process-step highlight">CRM Lead</span>
+  <span class="process-arrow">&rarr;</span>
+  <span class="process-step highlight">Ponuka (Odoo)</span>
+  <span class="process-arrow">&rarr;</span>
+  <span class="process-step highlight">Objedn&aacute;vka (auto)</span>
+  <span class="process-arrow">&rarr;</span>
+  <span class="process-step highlight">Dodanie (auto)</span>
+  <span class="process-arrow">&rarr;</span>
+  <span class="process-step highlight">Fakt&uacute;ra (auto)</span>
+</div>
+
+<p>Navrhovan&eacute; rie&scaron;enie v Odoo modul&aacute;ch <b>CRM</b>, <b>Sales</b>, <b>Invoicing</b>:</p>
+
+<table>
+<thead>
+  <tr><th>Funkcia</th><th>Rie&scaron;enie v Odoo</th><th>Modul</th></tr>
+</thead>
+<tbody>
+  <tr>
+    <td><b>Cenov&eacute; zoznamy</b></td>
+    <td>Pricelists s pravidlami: z&aacute;kladn&aacute; cena, percentu&aacute;lna zľava, fixn&aacute; cena pre z&aacute;kazn&iacute;ka. Verzie s platnos&#357;ou od-do. Jeden zdroj pravdy.</td>
+    <td>Sales</td>
+  </tr>
+  <tr>
+    <td><b>B2B zmluvn&eacute; ceny</b></td>
+    <td>Pricelist per z&aacute;kazn&iacute;k/skupina. Automatick&yacute; v&yacute;ber na z&aacute;klade partnera. Mno&#382;stevn&eacute; rabaty.</td>
+    <td>Sales</td>
+  </tr>
+  <tr>
+    <td><b>Rabaty a schva&#318;ovanie</b></td>
+    <td>Discount field na order line + approval workflow (nad 15% &rarr; schv&aacute;lenie mana&#382;era). Pln&yacute; audit trail.</td>
+    <td>Sales + Approvals</td>
+  </tr>
+  <tr>
+    <td><b>Dopyt &rarr; Ponuka</b></td>
+    <td>CRM lead &rarr; opportunity &rarr; quotation jedn&yacute;m klikom. Ponuka s live dostupnos&#357;ou skladu.</td>
+    <td>CRM + Sales</td>
+  </tr>
+  <tr>
+    <td><b>Ponuka &rarr; Objedn&aacute;vka</b></td>
+    <td>Confirm quotation &rarr; Sales Order. Automatick&eacute; vytvorenie delivery order a n&aacute;kupu (ak MTO).</td>
+    <td>Sales + Inventory</td>
+  </tr>
+  <tr>
+    <td><b>Dodacie listy</b></td>
+    <td>Automaticky generovan&eacute; z Sales Order. Tla&#269;ov&aacute; zostava pod&#318;a &scaron;abl&oacute;ny.</td>
+    <td>Inventory</td>
+  </tr>
+  <tr>
+    <td><b>Dobropisy</b></td>
+    <td>Credit Note priamo z fakt&uacute;ry. Prepojenie na p&ocirc;vodn&yacute; doklad.</td>
+    <td>Invoicing</td>
+  </tr>
+  <tr>
+    <td><b>Reklam&aacute;cie</b></td>
+    <td>Helpdesk ticket prepojen&yacute; na SO/fakt&uacute;ru. Sledovanie stavu, SLA, eskal&aacute;cia.</td>
+    <td>Helpdesk</td>
+  </tr>
+</tbody>
+</table>
+
+<div class="kpi-grid">
+  <div class="kpi-box">
+    <div class="value">~10 min</div>
+    <div class="label">Cie&#318;ov&yacute; &#269;as na ponuku</div>
+  </div>
+  <div class="kpi-box">
+    <div class="value">1</div>
+    <div class="label">Centr&aacute;lny cenn&iacute;k</div>
+  </div>
+  <div class="kpi-box">
+    <div class="value">~0%</div>
+    <div class="label">Chybnos&#357; cien</div>
+  </div>
+  <div class="kpi-box">
+    <div class="value">100%</div>
+    <div class="label">Automatizovan&yacute; workflow</div>
+  </div>
+</div>
+
+<div class="callout-ok callout">
+  <b>&#10003; O&#269;ak&aacute;van&yacute; pr&iacute;nos:</b> Zn&iacute;&#382;enie administrat&iacute;vy obchodn&iacute;kov o ~35 hod&iacute;n/mesiac.
+  Elimin&aacute;cia chybovosti cenn&iacute;kov. N&aacute;vrat invest&iacute;cie do 4&ndash;6 mesiacov.
+</div>
+
+<!-- ============================================================ -->
+<h3>2.3 Gap anal&yacute;za</h3>
+
+<p>Porovnanie s&uacute;&#269;asn&eacute;ho stavu s cie&#318;ov&yacute;m rie&scaron;en&iacute;m v Odoo:</p>
+
+<table class="comparison">
+<thead>
+  <tr><th class="c">#</th><th>Oblas&#357;</th><th>AS-IS</th><th>TO-BE (Odoo)</th><th class="c">Gap</th><th>Rie&scaron;enie</th></tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="c">G1</td>
+    <td>Cenov&eacute; zoznamy</td>
+    <td class="as-is">3 Excel s&uacute;bory, manu&aacute;lna &uacute;dr&#382;ba</td>
+    <td class="to-be">Centr&aacute;lne Pricelists s pravidlami</td>
+    <td class="c"><span class="badge badge-low">&#352;tandard</span></td>
+    <td>Konfigur&aacute;cia, import existuj&uacute;cich cenn&iacute;kov</td>
+  </tr>
+  <tr>
+    <td class="c">G2</td>
+    <td>Rabaty nad 15%</td>
+    <td class="as-is">Schv&aacute;lenie cez email</td>
+    <td class="to-be">Approval workflow v Odoo</td>
+    <td class="c"><span class="badge badge-low">&#352;tandard</span></td>
+    <td>Modul Approvals &mdash; pravidl&aacute; pre discount limit</td>
+  </tr>
+  <tr>
+    <td class="c">G3</td>
+    <td>Ponuky s dostupnos&#357;ou skladu</td>
+    <td class="as-is">Obchodn&iacute;k nem&aacute; info o sklade</td>
+    <td class="to-be">Live stock na quotation line</td>
+    <td class="c"><span class="badge badge-low">&#352;tandard</span></td>
+    <td>&#352;tandardn&aacute; funkcionalita Sales + Inventory</td>
+  </tr>
+  <tr>
+    <td class="c">G4</td>
+    <td>PDF ponuka v SK dizajne</td>
+    <td class="as-is">Excel &scaron;abl&oacute;na s logom</td>
+    <td class="to-be">QWeb report s firemn&yacute;m brandingom</td>
+    <td class="c"><span class="badge badge-med">Customiz&aacute;cia</span></td>
+    <td>Custom QWeb &scaron;abl&oacute;na pre ponuky a objedn&aacute;vky (~4h)</td>
+  </tr>
+  <tr>
+    <td class="c">G5</td>
+    <td>Reklam&aacute;cie prepojen&eacute; na SO</td>
+    <td class="as-is">Google Sheet, bez prepojenia</td>
+    <td class="to-be">Helpdesk s linkom na SO/fakt&uacute;ru</td>
+    <td class="c"><span class="badge badge-low">&#352;tandard</span></td>
+    <td>Modul Helpdesk + konfigur&aacute;cia SLA</td>
+  </tr>
+  <tr>
+    <td class="c">G6</td>
+    <td>Automatick&yacute; follow-up ponuky</td>
+    <td class="as-is">Manu&aacute;lny email</td>
+    <td class="to-be">Automatick&yacute; reminder po X d&#328;och</td>
+    <td class="c"><span class="badge badge-low">&#352;tandard</span></td>
+    <td>Odoo quotation follow-up + email templates</td>
+  </tr>
+  <tr>
+    <td class="c">G7</td>
+    <td>Platobn&eacute; podmienky per z&aacute;kazn&iacute;k</td>
+    <td class="as-is">Pozn&aacute;mka v Exceli</td>
+    <td class="to-be">Payment Terms na partnerovi</td>
+    <td class="c"><span class="badge badge-low">&#352;tandard</span></td>
+    <td>Konfigur&aacute;cia payment terms, priradenie na kontakty</td>
+  </tr>
+  <tr>
+    <td class="c">G8</td>
+    <td>Viacjazy&#269;n&eacute; ponuky (SK/CZ/EN)</td>
+    <td class="as-is">Ru&#269;n&yacute; preklad</td>
+    <td class="to-be">Odoo preklady produktov + &scaron;abl&oacute;n</td>
+    <td class="c"><span class="badge badge-med">Customiz&aacute;cia</span></td>
+    <td>Odoo translations + custom QWeb pre viacjazy&#269;n&eacute; PDF (~3h)</td>
+  </tr>
+</tbody>
+</table>
+
+<h4>S&uacute;hrn gap anal&yacute;zy &mdash; Predaj</h4>
+<table>
+<thead>
+  <tr><th>Kateg&oacute;ria</th><th class="c">Po&#269;et</th><th class="r">Odhad (hodiny)</th></tr>
+</thead>
+<tbody>
+  <tr><td><span class="badge badge-low">&#352;tandard</span> &mdash; rie&scaron;ite&#318;n&eacute; konfigur&aacute;ciou</td><td class="c">6</td><td class="r">~8h</td></tr>
+  <tr><td><span class="badge badge-med">Customiz&aacute;cia</span> &mdash; vy&#382;aduje v&yacute;voj</td><td class="c">2</td><td class="r">~7h</td></tr>
+  <tr><td><span class="badge badge-high">Blocker</span> &mdash; vy&#382;aduje extern&uacute; integr&aacute;ciu</td><td class="c">0</td><td class="r">0h</td></tr>
+  <tr style="font-weight:bold"><td>Spolu &mdash; Predaj</td><td class="c">8</td><td class="r">~15h</td></tr>
+</tbody>
+</table>
+
+<!-- ============================================================ -->
+<h3>2.4 Odpor&uacute;&#269;ania pre modul Predaj</h3>
+
+<ol>
+  <li><b>F&aacute;za 1 (t&yacute;&#382;de&#328; 1&ndash;2):</b> Migr&aacute;cia cenn&iacute;kov do Odoo Pricelists, nastavenie payment terms, konfigur&aacute;cia Sales workflow</li>
+  <li><b>F&aacute;za 2 (t&yacute;&#382;de&#328; 3):</b> Custom QWeb &scaron;abl&oacute;ny pre ponuky a objedn&aacute;vky, viacjazy&#269;nos&#357;</li>
+  <li><b>F&aacute;za 3 (t&yacute;&#382;de&#328; 4):</b> Nastavenie Helpdesk pre reklam&aacute;cie, approval workflow pre rabaty</li>
+  <li><b>Testovanie:</b> Paraleln&yacute; beh star&eacute;ho a nov&eacute;ho syst&eacute;mu po&#269;as 2 t&yacute;&#382;d&#328;ov</li>
+</ol>
+
+<div class="callout">
+  <b>&#128161; Odpor&uacute;&#269;anie:</b> Za&#269;a&#357; modulom Predaj ako prvou f&aacute;zou implement&aacute;cie. M&aacute; najvy&scaron;&scaron;&iacute;
+  dopad na denn&uacute; efektivitu obchodn&eacute;ho t&iacute;mu a najni&#382;&scaron;iu mieru customiz&aacute;cie (75% &scaron;tandard Odoo).
+</div>
+
+<!-- ============================================================ -->
+<div class="watermark" style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);">
+  &#9888; KONIEC UK&Aacute;&#381;KY &mdash; kompletn&yacute; dokument obsahuje rovnak&uacute; &uacute;rove&#328; detailu pre v&scaron;etk&yacute;ch 9 oblast&iacute;<br>
+  plus Executive Summary, celkov&uacute; gap anal&yacute;zu, implementa&#269;n&yacute; harmonogram a rizikov&uacute; anal&yacute;zu
+</div>
+
+<p class="footer">
+  <b>IT-DK.sk</b> &mdash; &Scaron;tefan Jano&#357;&aacute;k | +421 911 085 838 | info@it-dk.sk | <a href="https://it-dk.sk">it-dk.sk</a>
+</p>
+
+</body>
+</html>

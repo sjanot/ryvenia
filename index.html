@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cenová ponuka — Business analýza Odoo ERP | Ryvenia</title>
+<style>
+  :root {
+    --accent: #2980b9;
+    --header-bg: #2c3e50;
+    --light-bg: #f8f9fa;
+    --border: #dee2e6;
+    --green: #27ae60;
+    --orange: #f39c12;
+    --grey: #95a5a6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 14px; color: #333; line-height: 1.5; max-width: 900px; margin: 0 auto; padding: 20px; }
+  h1 { font-size: 24px; text-align: center; margin-bottom: 4px; }
+  .subtitle { text-align: center; color: #666; margin-bottom: 16px; font-size: 14px; }
+  hr { border: none; border-top: 2px solid var(--accent); margin: 12px 0; }
+  h2 { font-size: 17px; color: var(--header-bg); margin: 20px 0 10px; }
+  h3 { font-size: 14px; margin: 12px 0 6px; }
+  .meta { display: flex; justify-content: space-between; margin-bottom: 12px; }
+  .meta span { font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 12px; }
+  th { background: var(--header-bg); color: white; padding: 6px 8px; text-align: left; font-size: 11px; }
+  th.r { text-align: right; }
+  th.c { text-align: center; }
+  td { padding: 4px 8px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  td.r { text-align: right; }
+  td.c { text-align: center; }
+  tr.section td { background: #eaf2f8; font-weight: bold; color: var(--accent); font-size: 12px; }
+  tr.total td { background: #eaf2f8; font-weight: bold; border-top: 2px solid var(--accent); border-bottom: 2px solid var(--accent); font-size: 13px; }
+  tr:nth-child(even):not(.section):not(.total) td { background: var(--light-bg); }
+  .note { color: #888; font-size: 10px; }
+  .summary { text-align: right; margin: 12px 0; }
+  .summary .price { font-size: 18px; font-weight: bold; color: var(--accent); }
+  .summary .hours { font-size: 14px; }
+  .prio-table { width: auto; }
+  .prio-table td, .prio-table th { padding: 4px 14px; }
+  ul { margin: 6px 0 6px 20px; font-size: 13px; }
+  ul li { margin-bottom: 4px; }
+  .check::before { content: "\2713  "; color: var(--green); }
+  .cross::before { content: "\2717  "; color: #e74c3c; }
+  .timeline td, .timeline th { font-size: 12px; padding: 6px 10px; }
+  .footer { margin-top: 20px; font-size: 11px; color: #999; }
+  @media print { body { padding: 0; font-size: 12px; } }
+</style>
+</head>
+<body>
+
+<h1>CENOV&Aacute; PONUKA</h1>
+<p class="subtitle">Business anal&yacute;za pre prechod na Odoo ERP</p>
+<hr>
+
+<div class="meta">
+  <div>
+    <span><b>D&aacute;tum:</b> 02.04.2026</span><br>
+    <span><b>Dod&aacute;vate&#318;:</b> it-dk.sk &mdash; &Scaron;tefan Jano&#357;&aacute;k</span>
+  </div>
+  <div style="text-align:right">
+    <span><b>Platnos&#357; do:</b> 30.04.2026</span><br>
+    <span><b>Odberate&#318;:</b> Ryvenia</span>
+  </div>
+</div>
+
+<div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:12px; padding:10px; background:#f8f9fa; border-radius:4px;">
+  <div>
+    <b>Dod&aacute;vate&#318;</b><br>
+    &Scaron;tefan Jano&#357;&aacute;k &mdash; it-dk.sk<br>
+    Odboj&aacute;rov 1957/8, 026 01 Doln&yacute; Kub&iacute;n<br>
+    tel.: +421 911 085 838 | info@it-dk.sk
+  </div>
+  <div style="text-align:right">
+    <b>Kontakt z&aacute;kazn&iacute;k</b><br>
+    Filip H&uacute;&scaron;&#357;ava (Business Development)<br>
+    Ryvenia<br>
+    tel.: +421 902 912 254 | fhustava@ryvenia.sk
+  </div>
+</div>
+
+<h2>1. Predmet ponuky</h2>
+<p style="font-size:13px; margin-bottom:12px;">
+  Komplexn&aacute; business anal&yacute;za s&uacute;&#269;asn&yacute;ch firemn&yacute;ch procesov a n&aacute;vrh cie&#318;ov&eacute;ho stavu
+  v syst&eacute;me Odoo ERP. Anal&yacute;za pokr&yacute;va 9 oblast&iacute;: predaj, n&aacute;kup, sklad, e-shop integr&aacute;cia,
+  expedi&aacute;cia, faktur&aacute;cia, majetok, reporting a migr&aacute;cia d&aacute;t zo star&eacute;ho ERP.
+  V&yacute;stupom je analytick&yacute; dokument s AS-IS a TO-BE procesn&yacute;mi mapami,
+  gap anal&yacute;zou, migra&#269;n&yacute;m pl&aacute;nom a odhadom n&aacute;kladov na implement&aacute;ciu.
+</p>
+
+<h2>2. Rozpo&#269;et pod&#318;a oblast&iacute;</h2>
+
+<table>
+<thead>
+  <tr><th class="c">#</th><th>Polo&#382;ka anal&yacute;zy</th><th class="r">Hodiny</th><th>V&yacute;stup</th></tr>
+</thead>
+<tbody>
+  <!-- Predaj -->
+  <tr class="section"><td colspan="2"><b>Predaj</b></td><td class="r"><b>12h</b></td><td></td></tr>
+  <tr><td class="c">1</td><td>Mapovanie cenov&yacute;ch zoznamov a B2B pricingu</td><td class="r">3</td><td class="note">AS-IS pricing model, zmluvn&eacute; ceny, rabaty</td></tr>
+  <tr><td class="c">2</td><td>Anal&yacute;za obchodn&eacute;ho toku (dopyt &rarr; ponuka &rarr; objedn&aacute;vka &rarr; fakt&uacute;ra)</td><td class="r">5</td><td class="note">BPMN procesn&aacute; mapa, TO-BE n&aacute;vrh v Odoo</td></tr>
+  <tr><td class="c">3</td><td>Dodacie listy, dobropisy, reklam&aacute;cie</td><td class="r">4</td><td class="note">Gap anal&yacute;za, po&#382;iadavky na customiz&aacute;ciu</td></tr>
+
+  <!-- Nakup -->
+  <tr class="section"><td colspan="2"><b>N&aacute;kup</b></td><td class="r"><b>8h</b></td><td></td></tr>
+  <tr><td class="c">4</td><td>Objedn&aacute;vky dod&aacute;vate&#318;om, pr&iacute;jemky, kontrola cien</td><td class="r">3</td><td class="note">AS-IS n&aacute;kupn&yacute; proces, schva&#318;ovacie workflow</td></tr>
+  <tr><td class="c">5</td><td>Automatick&eacute; n&aacute;vrhy n&aacute;kupu (replenishment)</td><td class="r">3</td><td class="note">Pravidl&aacute;, min/max hladiny, lead times</td></tr>
+  <tr><td class="c">6</td><td>Prepojenie n&aacute;kupn&yacute;ch objedn&aacute;vok na z&aacute;kazn&iacute;cke reserv&aacute;cie</td><td class="r">2</td><td class="note">Make-to-order vs. make-to-stock anal&yacute;za</td></tr>
+
+  <!-- Sklad -->
+  <tr class="section"><td colspan="2"><b>Sklad (WMS)</b></td><td class="r"><b>12h</b></td><td></td></tr>
+  <tr><td class="c">7</td><td>Multi-warehouse &scaron;trukt&uacute;ra a lok&aacute;cie</td><td class="r">3</td><td class="note">N&aacute;vrh skladovej topol&oacute;gie v Odoo</td></tr>
+  <tr><td class="c">8</td><td>Reserv&aacute;cie, picking, prevodky</td><td class="r">4</td><td class="note">Picking strat&eacute;gia, routes, procesn&aacute; mapa</td></tr>
+  <tr><td class="c">9</td><td>Invent&uacute;ry a pohyby tovaru</td><td class="r">2</td><td class="note">Cyklick&eacute; vs. pln&eacute; invent&uacute;ry, workflow</td></tr>
+  <tr><td class="c">10</td><td>Min/max pravidl&aacute; z&aacute;sob s notifik&aacute;ciami</td><td class="r">3</td><td class="note">Reorder rules, automatick&eacute; alerty</td></tr>
+
+  <!-- E-shop -->
+  <tr class="section"><td colspan="2"><b>E-shop integr&aacute;cia</b></td><td class="r"><b>8h</b></td><td></td></tr>
+  <tr><td class="c">11</td><td>Obojsmern&aacute; synchroniz&aacute;cia cez API</td><td class="r">3</td><td class="note">API &scaron;pecifik&aacute;cia, d&aacute;tov&eacute; toky, autentifik&aacute;cia</td></tr>
+  <tr><td class="c">12</td><td>Import objedn&aacute;vok z e-shopu</td><td class="r">2</td><td class="note">Mapovanie pol&iacute;, stavy, error handling</td></tr>
+  <tr><td class="c">13</td><td>Live sync z&aacute;sob, cien a stavov objedn&aacute;vok</td><td class="r">3</td><td class="note">Sync strat&eacute;gia (webhook vs. polling), latencie</td></tr>
+
+  <!-- Expedicia -->
+  <tr class="section"><td colspan="2"><b>Expedi&aacute;cia a logistika</b></td><td class="r"><b>4h</b></td><td></td></tr>
+  <tr><td class="c">14</td><td>Delivery orders a pl&aacute;novanie expedi&aacute;cie</td><td class="r">2</td><td class="note">Procesn&aacute; mapa, prepojenie na sklad</td></tr>
+  <tr><td class="c">15</td><td>Integr&aacute;cia s dopravcami, tla&#269; &scaron;t&iacute;tkov</td><td class="r">2</td><td class="note">Zoznam dopravcov, API mo&#382;nosti, &scaron;t&iacute;tky</td></tr>
+
+  <!-- Fakturacia -->
+  <tr class="section"><td colspan="2"><b>Faktur&aacute;cia a financie</b></td><td class="r"><b>8h</b></td><td></td></tr>
+  <tr><td class="c">16</td><td>Fakt&uacute;ry, dobropisy, p&aacute;rovanie platieb</td><td class="r">3</td><td class="note">AS-IS faktura&#269;n&yacute; proces, reconcili&aacute;cia</td></tr>
+  <tr><td class="c">17</td><td>Preh&#318;ad poh&#318;ad&aacute;vok a export do &uacute;&#269;tovn&iacute;ctva</td><td class="r">3</td><td class="note">Integr&aacute;cia s extern&yacute;m &uacute;&#269;tovn&iacute;ctvom, form&aacute;ty</td></tr>
+  <tr><td class="c">18</td><td>DPH pod&#318;a slovenskej legislat&iacute;vy</td><td class="r">2</td><td class="note">Da&#328;ov&eacute; profily, SK &scaron;pecifik&aacute;, KV DPH</td></tr>
+
+  <!-- Majetok -->
+  <tr class="section"><td colspan="2"><b>Majetok</b></td><td class="r"><b>4h</b></td><td></td></tr>
+  <tr><td class="c">19</td><td>Evidencia majetku, odpisy, intern&eacute; priradenie</td><td class="r">4</td><td class="note">Kateg&oacute;rie, odpisov&eacute; pl&aacute;ny, invent&aacute;r</td></tr>
+
+  <!-- Reporting -->
+  <tr class="section"><td colspan="2"><b>Reporting a dashboardy</b></td><td class="r"><b>4h</b></td><td></td></tr>
+  <tr><td class="c">20</td><td>Obrat, mar&#382;e, cashflow, obr&aacute;tkovos&#357; skladu</td><td class="r">2</td><td class="note">KPI defin&iacute;cie, zdroje d&aacute;t, vizualiz&aacute;cia</td></tr>
+  <tr><td class="c">21</td><td>V&yacute;konnos&#357; obchodn&iacute;kov</td><td class="r">2</td><td class="note">Metriky, dashboard n&aacute;vrh</td></tr>
+
+  <!-- Migracia -->
+  <tr class="section"><td colspan="2"><b>Migr&aacute;cia d&aacute;t</b></td><td class="r"><b>8h</b></td><td></td></tr>
+  <tr><td class="c">22</td><td>Mapovanie d&aacute;tov&yacute;ch ent&iacute;t (z&aacute;kazn&iacute;ci, dod&aacute;vatelia, produkty)</td><td class="r">3</td><td class="note">Zdrojov&eacute; vs. cie&#318;ov&eacute; &scaron;trukt&uacute;ry, transform&aacute;cia</td></tr>
+  <tr><td class="c">23</td><td>Skladov&eacute; z&aacute;soby a hist&oacute;ria fakt&uacute;r</td><td class="r">3</td><td class="note">Strat&eacute;gia &#269;istenia d&aacute;t, valid&aacute;cia</td></tr>
+  <tr><td class="c">24</td><td>Otvoren&eacute; objedn&aacute;vky a prechodov&eacute; obdobie</td><td class="r">2</td><td class="note">Cut-over pl&aacute;n, rollback strat&eacute;gia</td></tr>
+
+  <!-- Rezia -->
+  <tr class="section"><td colspan="2"><b>R&eacute;&#382;ia projektu</b></td><td class="r"><b>12h</b></td><td></td></tr>
+  <tr><td class="c"></td><td>&Uacute;vodn&yacute; workshop so stakeholdermi</td><td class="r">4</td><td class="note">Discovery, prior&iacute;ty, o&#269;ak&aacute;vania</td></tr>
+  <tr><td class="c"></td><td>Priebe&#382;n&eacute; konzult&aacute;cie a koordin&aacute;cia</td><td class="r">4</td><td class="note">Meetingy, komunik&aacute;cia, rev&iacute;zie</td></tr>
+  <tr><td class="c"></td><td>Z&aacute;vere&#269;n&aacute; prezent&aacute;cia a odovzdanie</td><td class="r">4</td><td class="note">Prezent&aacute;cia mana&#382;mentu, Q&amp;A</td></tr>
+
+  <!-- TOTAL -->
+  <tr class="total"><td colspan="2"><b>CELKOM</b></td><td class="r"><b>80h</b></td><td></td></tr>
+</tbody>
+</table>
+
+<div class="summary">
+  <div class="price">Celkov&aacute; cena: 2 400 EUR (bez DPH)</div>
+  <div class="hours">Celkov&yacute; rozsah: <b>80 hod&iacute;n</b> &mdash; 10 &#269;lovekod&ntilde;&iacute;</div>
+</div>
+
+<h2>3. V&yacute;stupy anal&yacute;zy</h2>
+<p style="font-size:13px; margin-bottom:8px;">Z&aacute;kazn&iacute;k dostane komplexn&yacute; analytick&yacute; dokument obsahuj&uacute;ci:</p>
+
+<table>
+<thead>
+  <tr><th class="c">#</th><th>Kapitola</th><th>Popis</th></tr>
+</thead>
+<tbody>
+  <tr><td class="c">1</td><td><b>Executive Summary</b></td><td class="note">Zhrnutie zisten&iacute;, odpor&uacute;&#269;an&iacute; a rozsahu implement&aacute;cie</td></tr>
+  <tr><td class="c">2</td><td><b>AS-IS anal&yacute;za</b></td><td class="note">Mapovanie aktu&aacute;lnych procesov pre ka&#382;d&uacute; oblas&#357;, pain points, neefektivity</td></tr>
+  <tr><td class="c">3</td><td><b>TO-BE n&aacute;vrh v Odoo</b></td><td class="note">Cie&#318;ov&eacute; procesy v Odoo, odpor&uacute;&#269;an&eacute; nastavenia, workflow, automatiz&aacute;cie</td></tr>
+  <tr><td class="c">4</td><td><b>Gap anal&yacute;za</b></td><td class="note">Rozdiely medzi AS-IS a TO-BE, zoznam customiz&aacute;ci&iacute; a integr&aacute;ci&iacute; s prioritiz&aacute;ciou</td></tr>
+  <tr><td class="c">5</td><td><b>Integr&aacute;cie</b></td><td class="note">Technick&yacute; n&aacute;vrh integr&aacute;cie s e-shopom, &uacute;&#269;tovn&iacute;ctvom, dopravcami. API &scaron;pecifik&aacute;cia</td></tr>
+  <tr><td class="c">6</td><td><b>Pl&aacute;n migr&aacute;cie d&aacute;t</b></td><td class="note">Mapovanie ent&iacute;t, strat&eacute;gia &#269;istenia d&aacute;t, postupnos&#357;, valid&aacute;cia, rollback</td></tr>
+  <tr><td class="c">7</td><td><b>Implementa&#269;n&yacute; harmonogram</b></td><td class="note">F&aacute;zovan&yacute; rollout, m&iacute;&#318;niky, t&iacute;m, zodpovednosti, odhad n&aacute;kladov</td></tr>
+  <tr><td class="c">8</td><td><b>Rizik&aacute; a odpor&uacute;&#269;ania</b></td><td class="note">Risk matrix, mitiga&#269;n&eacute; strat&eacute;gie, kritick&eacute; z&aacute;vislosti</td></tr>
+</tbody>
+</table>
+
+<h2>4. Harmonogram</h2>
+<table class="timeline">
+<thead>
+  <tr><th>F&aacute;za</th><th>Obdobie</th><th>V&yacute;stup</th></tr>
+</thead>
+<tbody>
+  <tr style="background:#e8f5e9"><td><b>1 &mdash; &Uacute;vodn&yacute; workshop</b></td><td><b>T&yacute;&#382;de&#328; 1</b></td><td>Stretnutie so stakeholdermi, pochopenie procesov, defin&iacute;cia prior&iacute;t</td></tr>
+  <tr style="background:#e8f5e9"><td><b>2 &mdash; Detailn&aacute; anal&yacute;za</b></td><td><b>T&yacute;&#382;de&#328; 1&ndash;2</b></td><td>Rozhovory s pou&#382;&iacute;vate&#318;mi, mapovanie workflow, identifik&aacute;cia &scaron;pecif&iacute;k</td></tr>
+  <tr style="background:#fff8e1"><td>3 &mdash; N&aacute;vrh rie&scaron;enia v Odoo</td><td>T&yacute;&#382;de&#328; 2&ndash;3</td><td>Mapovanie procesov na Odoo moduly, gap anal&yacute;za, n&aacute;vrh integr&aacute;ci&iacute;</td></tr>
+  <tr style="background:#fff8e1"><td>4 &mdash; Dokument&aacute;cia</td><td>T&yacute;&#382;de&#328; 3</td><td>Spracovanie analytick&eacute;ho dokumentu, procesn&yacute;ch m&aacute;p, implement. pl&aacute;nu</td></tr>
+  <tr style="background:#f5f5f5"><td>5 &mdash; Prezent&aacute;cia a odovzdanie</td><td>T&yacute;&#382;de&#328; 3</td><td>Prezent&aacute;cia mana&#382;mentu, diskusia, &uacute;pravy, fin&aacute;lne odovzdanie</td></tr>
+</tbody>
+</table>
+
+<h2>5. Platobn&eacute; podmienky</h2>
+<ul>
+  <li>50% z&aacute;loha pred za&#269;iatkom pr&aacute;c (1 200 EUR)</li>
+  <li>50% po odovzdan&iacute; fin&aacute;lneho dokumentu (1 200 EUR)</li>
+  <li>Splatnos&#357; fakt&uacute;ry: 14 dn&iacute;</li>
+  <li>2 kol&aacute; rev&iacute;zi&iacute; zahrnut&eacute; v cene</li>
+  <li>Dodato&#269;n&eacute; rev&iacute;zie alebo roz&scaron;&iacute;renie rozsahu &mdash; po dohode</li>
+</ul>
+
+<h2>6. &#268;o je zahrnut&eacute; v cene</h2>
+<ul>
+  <li class="check">Komplexn&aacute; anal&yacute;za v&scaron;etk&yacute;ch 9 oblast&iacute;</li>
+  <li class="check">AS-IS a TO-BE procesn&eacute; mapy (BPMN)</li>
+  <li class="check">Gap anal&yacute;za s prioritiz&aacute;ciou customiz&aacute;ci&iacute;</li>
+  <li class="check">Technick&aacute; &scaron;pecifik&aacute;cia integr&aacute;ci&iacute; (e-shop, &uacute;&#269;tovn&iacute;ctvo, dopravcovia)</li>
+  <li class="check">Pl&aacute;n migr&aacute;cie d&aacute;t zo star&eacute;ho ERP</li>
+  <li class="check">Implementa&#269;n&yacute; harmonogram s odhadom n&aacute;kladov</li>
+  <li class="check">&Uacute;vodn&yacute; workshop + z&aacute;vere&#269;n&aacute; prezent&aacute;cia mana&#382;mentu</li>
+  <li class="check">2 kol&aacute; rev&iacute;zi&iacute; dokumentu</li>
+  <li class="check">Analytick&yacute; dokument v PDF form&aacute;te (60&ndash;100 str&aacute;n)</li>
+</ul>
+
+<h2>7. Nie je zahrnut&eacute;</h2>
+<ul>
+  <li class="cross">Samotn&aacute; implement&aacute;cia Odoo ERP (predmet samostatnej ponuky na z&aacute;klade anal&yacute;zy)</li>
+  <li class="cross">Serverov&aacute; infra&scaron;trukt&uacute;ra a hosting</li>
+  <li class="cross">Licencie tret&iacute;ch str&aacute;n</li>
+  <li class="cross">V&yacute;voj custom modulov</li>
+  <li class="cross">Migr&aacute;cia d&aacute;t (anal&yacute;za &aacute;no, samotn&yacute; import nie)</li>
+  <li class="cross">&Scaron;kolenie koncov&yacute;ch pou&#382;&iacute;vate&#318;ov</li>
+</ul>
+
+<h2>8. Referencie</h2>
+<p style="font-size:13px; margin-bottom:8px;">Uk&aacute;&#382;ky na&scaron;ich realiz&aacute;ci&iacute; v oblasti Odoo ERP:</p>
+<ul>
+  <li><b>V&yacute;robn&aacute; firma CZ + SK</b> &mdash; implement&aacute;cia Odoo 19 CE (financie, sklady, v&yacute;roba, servis, import d&aacute;t z Helios ERP)</li>
+  <li><b>N&aacute;bytk&aacute;rska firma SK</b> &mdash; intern&eacute; procesy a zamestnaneck&eacute; workflow v Odoo</li>
+</ul>
+
+<p style="font-size:13px; margin-top:12px;">&#128196; <a href="ukazka-analyzy.html" style="color:var(--accent); font-weight:bold;">Pozrite si uk&aacute;&#382;ku v&yacute;stupnej anal&yacute;zy</a> &mdash; ilustrat&iacute;vny pr&iacute;klad modulu Predaj (AS-IS, TO-BE, gap anal&yacute;za)</p>
+
+<p class="footer">
+  <b>Kontakt:</b> &Scaron;tefan Jano&#357;&aacute;k | +421 911 085 838 | info@it-dk.sk | <a href="https://it-dk.sk">it-dk.sk</a><br><br>
+  Ponuka je informat&iacute;vna a nie je z&aacute;v&auml;zn&aacute;. Rozsah sa m&ocirc;&#382;e upravi&#357; po &uacute;vodnom workshope.
+  Platnos&#357; ponuky: 30 dn&iacute; od d&aacute;tumu vystavenia.
+</p>
+
+</body>
+</html>
