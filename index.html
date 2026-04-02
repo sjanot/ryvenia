@@ -97,55 +97,59 @@
 </thead>
 <tbody>
   <!-- Predaj -->
-  <tr class="section"><td colspan="2"><b>Predaj</b></td><td class="r"><b>12h</b></td><td></td></tr>
-  <tr><td class="c">1</td><td>Mapovanie cenov&yacute;ch zoznamov a B2B pricingu</td><td class="r">3</td><td class="note">AS-IS pricing model, zmluvn&eacute; ceny, rabaty</td></tr>
-  <tr><td class="c">2</td><td>Anal&yacute;za obchodn&eacute;ho toku (dopyt &rarr; ponuka &rarr; objedn&aacute;vka &rarr; fakt&uacute;ra)</td><td class="r">5</td><td class="note">BPMN procesn&aacute; mapa, TO-BE n&aacute;vrh v Odoo</td></tr>
-  <tr><td class="c">3</td><td>Dodacie listy, dobropisy, reklam&aacute;cie</td><td class="r">4</td><td class="note">Gap anal&yacute;za, po&#382;iadavky na customiz&aacute;ciu</td></tr>
+  <tr class="section"><td colspan="2"><b>Predaj</b></td><td class="r"><b>12h</b></td><td></td></tr><!-- 3+2+4+3=12 -->
+  <tr><td class="c">1</td><td>Cenov&eacute; zoznamy a zmluvn&eacute; ceny pre B2B z&aacute;kazn&iacute;kov</td><td class="r">3</td><td class="note">AS-IS pricing model, pricelists, zmluvn&eacute; ceny</td></tr>
+  <tr><td class="c">2</td><td>Rabaty a platobn&eacute; podmienky</td><td class="r">2</td><td class="note">Rabatov&eacute; pravidl&aacute;, schva&#318;ovanie, payment terms</td></tr>
+  <tr><td class="c">3</td><td>Cel&yacute; tok: dopyt &rarr; ponuka &rarr; objedn&aacute;vka &rarr; faktur&aacute;cia</td><td class="r">4</td><td class="note">BPMN procesn&aacute; mapa, TO-BE n&aacute;vrh v Odoo</td></tr>
+  <tr><td class="c">4</td><td>Dodacie listy, dobropisy, reklam&aacute;cie</td><td class="r">3</td><td class="note">Gap anal&yacute;za, po&#382;iadavky na customiz&aacute;ciu</td></tr>
 
   <!-- Nakup -->
   <tr class="section"><td colspan="2"><b>N&aacute;kup</b></td><td class="r"><b>8h</b></td><td></td></tr>
-  <tr><td class="c">4</td><td>Objedn&aacute;vky dod&aacute;vate&#318;om, pr&iacute;jemky, kontrola cien</td><td class="r">3</td><td class="note">AS-IS n&aacute;kupn&yacute; proces, schva&#318;ovacie workflow</td></tr>
-  <tr><td class="c">5</td><td>Automatick&eacute; n&aacute;vrhy n&aacute;kupu (replenishment)</td><td class="r">3</td><td class="note">Pravidl&aacute;, min/max hladiny, lead times</td></tr>
-  <tr><td class="c">6</td><td>Prepojenie n&aacute;kupn&yacute;ch objedn&aacute;vok na z&aacute;kazn&iacute;cke reserv&aacute;cie</td><td class="r">2</td><td class="note">Make-to-order vs. make-to-stock anal&yacute;za</td></tr>
+  <tr><td class="c">5</td><td>Objedn&aacute;vky dod&aacute;vate&#318;om, pr&iacute;jemky, kontrola cien</td><td class="r">3</td><td class="note">AS-IS n&aacute;kupn&yacute; proces, schva&#318;ovacie workflow</td></tr>
+  <tr><td class="c">6</td><td>Automatick&eacute; n&aacute;vrhy n&aacute;kupu cez replenishment pravidl&aacute;</td><td class="r">3</td><td class="note">Pravidl&aacute;, min/max hladiny, lead times</td></tr>
+  <tr><td class="c">7</td><td>Prepojenie n&aacute;kupn&yacute;ch objedn&aacute;vok na z&aacute;kazn&iacute;cke reserv&aacute;cie</td><td class="r">2</td><td class="note">Make-to-order vs. make-to-stock anal&yacute;za</td></tr>
 
   <!-- Sklad -->
-  <tr class="section"><td colspan="2"><b>Sklad (WMS)</b></td><td class="r"><b>12h</b></td><td></td></tr>
-  <tr><td class="c">7</td><td>Multi-warehouse &scaron;trukt&uacute;ra a lok&aacute;cie</td><td class="r">3</td><td class="note">N&aacute;vrh skladovej topol&oacute;gie v Odoo</td></tr>
-  <tr><td class="c">8</td><td>Reserv&aacute;cie, picking, prevodky</td><td class="r">4</td><td class="note">Picking strat&eacute;gia, routes, procesn&aacute; mapa</td></tr>
-  <tr><td class="c">9</td><td>Invent&uacute;ry a pohyby tovaru</td><td class="r">2</td><td class="note">Cyklick&eacute; vs. pln&eacute; invent&uacute;ry, workflow</td></tr>
-  <tr><td class="c">10</td><td>Min/max pravidl&aacute; z&aacute;sob s notifik&aacute;ciami</td><td class="r">3</td><td class="note">Reorder rules, automatick&eacute; alerty</td></tr>
+  <tr class="section"><td colspan="2"><b>Sklad (WMS)</b></td><td class="r"><b>14h</b></td><td></td></tr>
+  <tr><td class="c">8</td><td>Multi-warehouse &scaron;trukt&uacute;ra a lok&aacute;cie</td><td class="r">3</td><td class="note">N&aacute;vrh skladovej topol&oacute;gie v Odoo</td></tr>
+  <tr><td class="c">9</td><td>Reserv&aacute;cie, picking, prevodky</td><td class="r">3</td><td class="note">Picking strat&eacute;gia, routes, procesn&aacute; mapa</td></tr>
+  <tr><td class="c">10</td><td>Invent&uacute;ry, pohyby tovaru, dodacie listy</td><td class="r">3</td><td class="note">Cyklick&eacute; vs. pln&eacute; invent&uacute;ry, DL workflow</td></tr>
+  <tr><td class="c">11</td><td>Min/max pravidl&aacute; z&aacute;sob s automatick&yacute;mi notifik&aacute;ciami</td><td class="r">3</td><td class="note">Reorder rules, automatick&eacute; alerty</td></tr>
+  <tr><td class="c">12</td><td>Skladov&eacute; &scaron;t&iacute;tky a &scaron;ariadovanie</td><td class="r">2</td><td class="note">Lot/serial tracking, bar code strat&eacute;gia</td></tr>
 
   <!-- E-shop -->
   <tr class="section"><td colspan="2"><b>E-shop integr&aacute;cia</b></td><td class="r"><b>8h</b></td><td></td></tr>
-  <tr><td class="c">11</td><td>Obojsmern&aacute; synchroniz&aacute;cia cez API</td><td class="r">3</td><td class="note">API &scaron;pecifik&aacute;cia, d&aacute;tov&eacute; toky, autentifik&aacute;cia</td></tr>
-  <tr><td class="c">12</td><td>Import objedn&aacute;vok z e-shopu</td><td class="r">2</td><td class="note">Mapovanie pol&iacute;, stavy, error handling</td></tr>
-  <tr><td class="c">13</td><td>Live sync z&aacute;sob, cien a stavov objedn&aacute;vok</td><td class="r">3</td><td class="note">Sync strat&eacute;gia (webhook vs. polling), latencie</td></tr>
+  <tr><td class="c">13</td><td>Obojsmern&aacute; synchroniz&aacute;cia cez API</td><td class="r">3</td><td class="note">API &scaron;pecifik&aacute;cia, d&aacute;tov&eacute; toky, autentifik&aacute;cia</td></tr>
+  <tr><td class="c">14</td><td>Import objedn&aacute;vok z e-shopu</td><td class="r">2</td><td class="note">Mapovanie pol&iacute;, stavy, error handling</td></tr>
+  <tr><td class="c">15</td><td>Live synchroniz&aacute;cia skladov&yacute;ch z&aacute;sob</td><td class="r">1</td><td class="note">Webhook vs. polling, real-time stav</td></tr>
+  <tr><td class="c">16</td><td>Sync cien a aktualiz&aacute;cia stavu objedn&aacute;vky smerom k z&aacute;kazn&iacute;kovi</td><td class="r">2</td><td class="note">Cenov&eacute; zmeny, statusy, notifik&aacute;cie</td></tr>
 
   <!-- Expedicia -->
-  <tr class="section"><td colspan="2"><b>Expedi&aacute;cia a logistika</b></td><td class="r"><b>4h</b></td><td></td></tr>
-  <tr><td class="c">14</td><td>Delivery orders a pl&aacute;novanie expedi&aacute;cie</td><td class="r">2</td><td class="note">Procesn&aacute; mapa, prepojenie na sklad</td></tr>
-  <tr><td class="c">15</td><td>Integr&aacute;cia s dopravcami, tla&#269; &scaron;t&iacute;tkov</td><td class="r">2</td><td class="note">Zoznam dopravcov, API mo&#382;nosti, &scaron;t&iacute;tky</td></tr>
+  <tr class="section"><td colspan="2"><b>Expedi&aacute;cia a logistika</b></td><td class="r"><b>6h</b></td><td></td></tr>
+  <tr><td class="c">17</td><td>Delivery orders, pl&aacute;novanie expedi&aacute;cie</td><td class="r">2</td><td class="note">Procesn&aacute; mapa, pravidl&aacute; pl&aacute;novania</td></tr>
+  <tr><td class="c">18</td><td>Prepojenie objedn&aacute;vka &rarr; sklad &rarr; doprava</td><td class="r">2</td><td class="note">End-to-end tok, automatiz&aacute;cia routes</td></tr>
+  <tr><td class="c">19</td><td>Tla&#269; &scaron;t&iacute;tkov a integr&aacute;cia s dopravcami</td><td class="r">2</td><td class="note">Zoznam dopravcov, API mo&#382;nosti, form&aacute;ty</td></tr>
 
   <!-- Fakturacia -->
   <tr class="section"><td colspan="2"><b>Faktur&aacute;cia a financie</b></td><td class="r"><b>8h</b></td><td></td></tr>
-  <tr><td class="c">16</td><td>Fakt&uacute;ry, dobropisy, p&aacute;rovanie platieb</td><td class="r">3</td><td class="note">AS-IS faktura&#269;n&yacute; proces, reconcili&aacute;cia</td></tr>
-  <tr><td class="c">17</td><td>Preh&#318;ad poh&#318;ad&aacute;vok a export do &uacute;&#269;tovn&iacute;ctva</td><td class="r">3</td><td class="note">Integr&aacute;cia s extern&yacute;m &uacute;&#269;tovn&iacute;ctvom, form&aacute;ty</td></tr>
-  <tr><td class="c">18</td><td>DPH pod&#318;a slovenskej legislat&iacute;vy</td><td class="r">2</td><td class="note">Da&#328;ov&eacute; profily, SK &scaron;pecifik&aacute;, KV DPH</td></tr>
+  <tr><td class="c">20</td><td>Fakt&uacute;ry, dobropisy, p&aacute;rovanie platieb</td><td class="r">3</td><td class="note">AS-IS faktura&#269;n&yacute; proces, reconcili&aacute;cia</td></tr>
+  <tr><td class="c">21</td><td>Preh&#318;ad poh&#318;ad&aacute;vok a export do extern&eacute;ho &uacute;&#269;tovn&iacute;ctva</td><td class="r">3</td><td class="note">Integr&aacute;cia, form&aacute;ty, automatick&yacute; export</td></tr>
+  <tr><td class="c">22</td><td>DPH pod&#318;a slovenskej legislat&iacute;vy</td><td class="r">2</td><td class="note">Da&#328;ov&eacute; profily, SK &scaron;pecifik&aacute;, KV DPH</td></tr>
 
   <!-- Majetok -->
   <tr class="section"><td colspan="2"><b>Majetok</b></td><td class="r"><b>4h</b></td><td></td></tr>
-  <tr><td class="c">19</td><td>Evidencia majetku, odpisy, intern&eacute; priradenie</td><td class="r">4</td><td class="note">Kateg&oacute;rie, odpisov&eacute; pl&aacute;ny, invent&aacute;r</td></tr>
+  <tr><td class="c">23</td><td>Evidencia majetku, odpisy, intern&eacute; priradenie</td><td class="r">4</td><td class="note">Kateg&oacute;rie, odpisov&eacute; pl&aacute;ny, invent&aacute;r</td></tr>
 
   <!-- Reporting -->
   <tr class="section"><td colspan="2"><b>Reporting a dashboardy</b></td><td class="r"><b>4h</b></td><td></td></tr>
-  <tr><td class="c">20</td><td>Obrat, mar&#382;e, cashflow, obr&aacute;tkovos&#357; skladu</td><td class="r">2</td><td class="note">KPI defin&iacute;cie, zdroje d&aacute;t, vizualiz&aacute;cia</td></tr>
-  <tr><td class="c">21</td><td>V&yacute;konnos&#357; obchodn&iacute;kov</td><td class="r">2</td><td class="note">Metriky, dashboard n&aacute;vrh</td></tr>
+  <tr><td class="c">24</td><td>Obrat, mar&#382;e, cashflow, obr&aacute;tkovos&#357; skladu</td><td class="r">2</td><td class="note">KPI defin&iacute;cie, zdroje d&aacute;t, vizualiz&aacute;cia</td></tr>
+  <tr><td class="c">25</td><td>V&yacute;konnos&#357; obchodn&iacute;kov</td><td class="r">2</td><td class="note">Metriky, dashboard n&aacute;vrh</td></tr>
 
   <!-- Migracia -->
   <tr class="section"><td colspan="2"><b>Migr&aacute;cia d&aacute;t</b></td><td class="r"><b>8h</b></td><td></td></tr>
-  <tr><td class="c">22</td><td>Mapovanie d&aacute;tov&yacute;ch ent&iacute;t (z&aacute;kazn&iacute;ci, dod&aacute;vatelia, produkty)</td><td class="r">3</td><td class="note">Zdrojov&eacute; vs. cie&#318;ov&eacute; &scaron;trukt&uacute;ry, transform&aacute;cia</td></tr>
-  <tr><td class="c">23</td><td>Skladov&eacute; z&aacute;soby a hist&oacute;ria fakt&uacute;r</td><td class="r">3</td><td class="note">Strat&eacute;gia &#269;istenia d&aacute;t, valid&aacute;cia</td></tr>
-  <tr><td class="c">24</td><td>Otvoren&eacute; objedn&aacute;vky a prechodov&eacute; obdobie</td><td class="r">2</td><td class="note">Cut-over pl&aacute;n, rollback strat&eacute;gia</td></tr>
+  <tr><td class="c">26</td><td>Mapovanie d&aacute;tov&yacute;ch ent&iacute;t (z&aacute;kazn&iacute;ci, dod&aacute;vatelia, produkty)</td><td class="r">3</td><td class="note">Zdrojov&eacute; vs. cie&#318;ov&eacute; &scaron;trukt&uacute;ry, transform&aacute;cia</td></tr>
+  <tr><td class="c">27</td><td>Skladov&eacute; z&aacute;soby a hist&oacute;ria fakt&uacute;r</td><td class="r">3</td><td class="note">Strat&eacute;gia &#269;istenia d&aacute;t, valid&aacute;cia</td></tr>
+  <tr><td class="c">28</td><td>Otvoren&eacute; objedn&aacute;vky a prechodov&eacute; obdobie</td><td class="r">2</td><td class="note">Cut-over pl&aacute;n, rollback strat&eacute;gia</td></tr>
 
   <!-- Rezia -->
   <tr class="section"><td colspan="2"><b>R&eacute;&#382;ia projektu</b></td><td class="r"><b>12h</b></td><td></td></tr>
@@ -154,13 +158,13 @@
   <tr><td class="c"></td><td>Z&aacute;vere&#269;n&aacute; prezent&aacute;cia a odovzdanie</td><td class="r">4</td><td class="note">Prezent&aacute;cia mana&#382;mentu, Q&amp;A</td></tr>
 
   <!-- TOTAL -->
-  <tr class="total"><td colspan="2"><b>CELKOM</b></td><td class="r"><b>80h</b></td><td></td></tr>
+  <tr class="total"><td colspan="2"><b>CELKOM</b></td><td class="r"><b>84h</b></td><td></td></tr>
 </tbody>
 </table>
 
 <div class="summary">
-  <div class="price">Celkov&aacute; cena: 2 400 EUR (bez DPH)</div>
-  <div class="hours">Celkov&yacute; rozsah: <b>80 hod&iacute;n</b> &mdash; 10 &#269;lovekod&ntilde;&iacute;</div>
+  <div class="price">Celkov&aacute; cena: 2 500 EUR (bez DPH)</div>
+  <div class="hours">Celkov&yacute; rozsah: <b>84 hod&iacute;n</b> &mdash; 10,5 &#269;lovekodn&iacute;</div>
 </div>
 
 <h2>3. V&yacute;stupy anal&yacute;zy</h2>
@@ -198,8 +202,8 @@
 
 <h2>5. Platobn&eacute; podmienky</h2>
 <ul>
-  <li>50% z&aacute;loha pred za&#269;iatkom pr&aacute;c (1 200 EUR)</li>
-  <li>50% po odovzdan&iacute; fin&aacute;lneho dokumentu (1 200 EUR)</li>
+  <li>50% z&aacute;loha pred za&#269;iatkom pr&aacute;c (1 250 EUR)</li>
+  <li>50% po odovzdan&iacute; fin&aacute;lneho dokumentu (1 250 EUR)</li>
   <li>Splatnos&#357; fakt&uacute;ry: 14 dn&iacute;</li>
   <li>2 kol&aacute; rev&iacute;zi&iacute; zahrnut&eacute; v cene</li>
   <li>Dodato&#269;n&eacute; rev&iacute;zie alebo roz&scaron;&iacute;renie rozsahu &mdash; po dohode</li>
